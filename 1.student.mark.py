@@ -28,29 +28,29 @@ def input_marks():
         print("Course not found")
         return
     for student in students:
-        mark = float(input("Enter marks for {student['name']} (ID: {student['id']}): "))
+        mark = float(input(f"Enter marks for {student['name']} (ID: {student['id']}): "))
         marks[course_id][student["id"]] = mark
 
 def list_students():
     print("Student list:")
     for student in students:
-        print("ID: {student['id']}, Name: {student['name']}, Date of Birth: {student['dob']}")
+        print(f"ID: {student['id']}, Name: {student['name']}, Date of Birth: {student['dob']}")
 
 def list_courses():
     print("Course list:")
     for course in courses:
-        print("ID: {course['id']}, Name: {course['name']}")
+        print(f"ID: {course['id']}, Name: {course['name']}")
 
 def show_marks():
     course_id = input("Enter course ID: ")
     if course_id not in marks:
         print("Course not found!")
         return
-    print("Marks for course {course_id}:")
+    print(f"Marks for course {course_id}:")
     for student_id, mark in marks[course_id].items():
         student = next((s for s in students if s["id"] == student_id), None)
         if student:
-            print("ID: {student['id']}, Name: {student['name']}, Marks: {mark}")
+            print(f"ID: {student['id']}, Name: {student['name']}, Marks: {mark}")
 
 while True:
     print("\nStudent Marks Management")
